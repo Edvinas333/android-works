@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Works</string>
+
+    <string name="login_username">Vartotojo vardas</string>
+    <string name="login_password">Slaptažodis</string>
+    <string name="login_button">Prisijungti</string>
+
+    <string name="login_u_error">Klaidingai ivestas Vartotojo vardas</string>
+    <string name="login_p_error">Klaidingai ivestas Slpatažodis</string>
+
+    <string name="register_button">Registruotis</string>
+    <string name="register_name">Registracija</string>
+    <string name="email">Email</string>
+    <string name="register_email_error">Klaidingai ivestas Email</string>
+
+    <string name="main_hello">Sveiki prisijunge!</string>
+
+</resources>
