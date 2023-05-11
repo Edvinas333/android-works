@@ -14,5 +14,12 @@
     <string name="register_email_error">Klaidingai ivestas Email</string>
 
     <string name="main_hello">Sveiki prisijunge!</string>
+    <string name="main_new_item">Įveskite naują užduotį</string>
+    <string name="main_exit_button">Atsijungti</string>
+    <string name="main_add_item">Pridėti</string>
+    <string name="main_edit_button">Redaguoti</string>
+    <string name="main_delete_button">Pašalinti</string>
+
+    <string name="popup_button">Išsaugoti</string>
 
 </resources>

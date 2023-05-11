@@ -37,7 +37,10 @@ public class LoginActivity extends AppCompatActivity {
                         String user = userName.getText().toString();
                         String pass = password.getText().toString();
 
-                        Boolean checkuserpass = userdb.checkUserNamePassword(user, pass);
+                        User users = new User(user, pass);
+
+
+                        Boolean checkuserpass = userdb.checkUserNamePassword(users);
                         if(checkuserpass == true){
                             Toast.makeText(LoginActivity.this, "Prisijungimas sekmingas!", Toast.LENGTH_SHORT).show();
                             Intent goToMainActivity = new Intent(LoginActivity.this, MainActivity.class);

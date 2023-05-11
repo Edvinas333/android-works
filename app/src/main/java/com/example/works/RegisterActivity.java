@@ -42,9 +42,11 @@ public class RegisterActivity extends AppCompatActivity {
                             String pass = password.getText().toString();
                             String email = remail.getText().toString();
 
-                            Boolean checkuser = userdb.checkUserName(user);
+                            User users = new User(user, pass, email);
+
+                            Boolean checkuser = userdb.checkUserName(users);
                             if (checkuser == false){
-                                Boolean insert = userdb.insertData(user, pass, email);
+                                Boolean insert = userdb.insertData(users);
                                 if (insert == true) {
                                     Toast.makeText(RegisterActivity.this, "Registracija sėkminga!", Toast.LENGTH_SHORT).show();
                                     Intent goToLoginActivity = new Intent(RegisterActivity.this, LoginActivity.class);
@@ -59,11 +61,6 @@ public class RegisterActivity extends AppCompatActivity {
                                 Intent goToLoginActivity = new Intent(RegisterActivity.this, LoginActivity.class);
                                 startActivity(goToLoginActivity);
                             }
-
-                           // Intent goToLoginActivity = new Intent(RegisterActivity.this, LoginActivity.class);
-                          //  startActivity(goToLoginActivity);
-
-
 
                            
                         } else {
