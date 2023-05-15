@@ -15,7 +15,7 @@ public class WorkDAO extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "work.db";
-    public static final String TABLE_NAME = "wroks";
+    public static final String TABLE_NAME = "works";
 
     public static final String ID = "id";
     public static final String COMMENT = "comment";

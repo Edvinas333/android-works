@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -21,6 +23,8 @@ public class RegisterActivity extends AppCompatActivity {
         EditText userName = findViewById(R.id.register_username);
         EditText password = findViewById(R.id.register_password);
         EditText remail = findViewById(R.id.register_email);
+        RadioButton adminRadioButton = findViewById(R.id.admin_radio_button);
+        RadioButton userRadioButton = findViewById(R.id.user_radio_button);
         Button register = findViewById(R.id.register);
 
         userdb = new UserDAO(this);
@@ -41,8 +45,10 @@ public class RegisterActivity extends AppCompatActivity {
                             String user = userName.getText().toString();
                             String pass = password.getText().toString();
                             String email = remail.getText().toString();
+                            boolean isAdmin = adminRadioButton.isChecked();
+                            boolean isUser = userRadioButton.isChecked();
 
-                            User users = new User(user, pass, email);
+                            User users = new User(user, pass, email, isAdmin, isUser);
 
                             Boolean checkuser = userdb.checkUserName(users);
                             if (checkuser == false){

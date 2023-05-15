@@ -12,6 +12,7 @@
     <string name="register_name">Registracija</string>
     <string name="email">Email</string>
     <string name="register_email_error">Klaidingai ivestas Email</string>
+    <string name="register_admin_checkbox">Administratorius</string>
 
     <string name="main_hello">Sveiki prisijunge!</string>
     <string name="main_new_item">Įveskite naują užduotį</string>
@@ -20,6 +21,9 @@
     <string name="main_edit_button">Redaguoti</string>
     <string name="main_delete_button">Pašalinti</string>
 
+    <string name="edit_popup_text">Redaguojame įrašą</string>
     <string name="popup_button">Išsaugoti</string>
+
+    <string name="admin_hello">Admin aplinka!</string>
 
 </resources>

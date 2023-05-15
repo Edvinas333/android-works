@@ -60,9 +60,9 @@ public class WorkListAdapter extends ArrayAdapter<Work> {
                 if (success) {
                     mWorkList.remove(position);
                     notifyDataSetChanged();
-                    Toast.makeText(v.getContext(), "Work deleted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), "Darbas pašalintas!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(v.getContext(), "Failed to delete work", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), "Nepavyko pašalinti darbo!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -88,8 +88,9 @@ public class WorkListAdapter extends ArrayAdapter<Work> {
         //sukuriamas isokantis langas
         LayoutInflater layoutInflater = context.getLayoutInflater();
         View layout = layoutInflater.inflate(R.layout.edit_popup, context.findViewById(R.id.popup));
-        popupWindow = new PopupWindow(layout, 600, 670, true);
+        popupWindow = new PopupWindow(layout, 1100, 540, true);
         popupWindow.showAtLocation(layout, Gravity.CENTER, 0, 0);
+
 
         //susiejamas kodas su vaizdu
         EditText comment = layout.findViewById(R.id.edit_comment);

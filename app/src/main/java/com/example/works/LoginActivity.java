@@ -41,10 +41,18 @@ public class LoginActivity extends AppCompatActivity {
 
 
                         Boolean checkuserpass = userdb.checkUserNamePassword(users);
+                        Boolean checkUserNamePasswordAdmin = userdb.checkUserNamePasswordAdmin(users);
                         if(checkuserpass == true){
-                            Toast.makeText(LoginActivity.this, "Prisijungimas sekmingas!", Toast.LENGTH_SHORT).show();
-                            Intent goToMainActivity = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(goToMainActivity);
+                            if(checkUserNamePasswordAdmin == true){
+                                Toast.makeText(LoginActivity.this, "Prisijungėte kaip administratorius!", Toast.LENGTH_SHORT).show();
+                                Intent goToAdminActivity = new Intent(LoginActivity.this, AdminActivity.class);
+                                startActivity(goToAdminActivity);
+                            }
+                            else {
+                                Toast.makeText(LoginActivity.this, "Prisijungimas sekmingas!", Toast.LENGTH_SHORT).show();
+                                Intent goToMainActivity = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(goToMainActivity);
+                            }
                         }
                         else {
                             Toast.makeText(LoginActivity.this, "Neteisingi prisijungimo duomenys!", Toast.LENGTH_SHORT).show();
