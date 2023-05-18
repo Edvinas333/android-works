@@ -10,7 +10,6 @@ public class Work {
     }
 
 
-
     public Work(int id, String comment) {
         this.id = id;
         this.comment = comment;

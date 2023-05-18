@@ -24,12 +24,6 @@ public class User {
         this.isUser = isUser;
     }
 
-    public User(String username, String password, String email) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-    }
-
     public User(String username) {
         this.username = username;
     }
@@ -80,6 +74,8 @@ public class User {
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
+                ", isAdmin=" + isAdmin +
+                ", isUser=" + isUser +
                 '}';
     }
 }

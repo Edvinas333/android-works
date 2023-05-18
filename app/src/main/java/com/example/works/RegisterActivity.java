@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -39,7 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
                 password.setError(null);
 
                 if (Validation.isUserNameValid(userName.getText().toString())) {
-                    if (Validation.isPasswordValid(remail.getText().toString())) {
+                    if (Validation.isEmailValid(remail.getText().toString())) {
                         if (Validation.isPasswordValid(password.getText().toString())) {
 
                             String user = userName.getText().toString();
@@ -51,24 +50,22 @@ public class RegisterActivity extends AppCompatActivity {
                             User users = new User(user, pass, email, isAdmin, isUser);
 
                             Boolean checkuser = userdb.checkUserName(users);
-                            if (checkuser == false){
+                            if (checkuser == false) {
                                 Boolean insert = userdb.insertData(users);
                                 if (insert == true) {
                                     Toast.makeText(RegisterActivity.this, "Registracija sėkminga!", Toast.LENGTH_SHORT).show();
                                     Intent goToLoginActivity = new Intent(RegisterActivity.this, LoginActivity.class);
                                     startActivity(goToLoginActivity);
-                                }
-                                else {
+                                } else {
                                     Toast.makeText(RegisterActivity.this, "Registracija nepavyko!", Toast.LENGTH_SHORT).show();
                                 }
-                            }
-                            else {
+                            } else {
                                 Toast.makeText(RegisterActivity.this, "Toks vartotojas yra registruotas! Prašome prisijungti!", Toast.LENGTH_SHORT).show();
                                 Intent goToLoginActivity = new Intent(RegisterActivity.this, LoginActivity.class);
                                 startActivity(goToLoginActivity);
                             }
 
-                           
+
                         } else {
                             password.setError(getResources().getString(R.string.login_p_error));
                             password.requestFocus();

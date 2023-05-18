@@ -10,8 +10,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-
 import java.util.List;
 
 public class UserListAdapter extends ArrayAdapter<User> {
@@ -49,7 +47,10 @@ public class UserListAdapter extends ArrayAdapter<User> {
         TextView adminTextView = listItem.findViewById(R.id.admin_textview);
         TextView userTextView = listItem.findViewById(R.id.textview_for_user);
 
-        if(currentUser.isAdmin()){
+        TextView emailTextView = listItem.findViewById(R.id.textview_for_email);
+        emailTextView.setText(currentUser.getEmail());
+
+        if (currentUser.isAdmin()) {
             adminTextView.setText("Administratorius");
             notifyDataSetChanged();
         } else {
@@ -59,20 +60,18 @@ public class UserListAdapter extends ArrayAdapter<User> {
             deleteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // Perform delete operation here, e.g.:
-                    boolean success = new UserDAO(mContext).deleteUserData(currentUser.getUsername());
-                    if (success) {
-                        mUserList.remove(position);
-                        notifyDataSetChanged();
-                        Toast.makeText(v.getContext(), "Vartotojas pašalintas!", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(v.getContext(), "Nepavyko pašalinti vartotojo.", Toast.LENGTH_SHORT).show();
-                    }
+                        boolean success = new UserDAO(mContext).deleteUserData(currentUser.getUsername());
+                        if (success) {
+                            mUserList.remove(position);
+                            Toast.makeText(v.getContext(), "Vartotojas pašalintas!", Toast.LENGTH_SHORT).show();
+                            notifyDataSetChanged();
+                        } else {
+                            Toast.makeText(v.getContext(), "Nepavyko pašalinti vartotojo.", Toast.LENGTH_SHORT).show();
+                        }
                 }
             });
 
         }
-
 
 
         return listItem;

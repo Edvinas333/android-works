@@ -2,18 +2,14 @@ package com.example.works;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -41,22 +37,21 @@ public class MainActivity extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // gauname naujo komentaro tekstą iš teksto lauko
                 String comment = wcomment.getText().toString();
                 if (!comment.equals("")) {
                     Work newWork = new Work(comment);
                     boolean success = mDbHelper.insertData(newWork);
                     if (success) {
-                        Toast.makeText(MainActivity.this, "Comment added", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Darbas sukurtas!", Toast.LENGTH_SHORT).show();
                         wcomment.getText().clear();
                         loadWorkList();
                     } else {
                         loadWorkList();
                         wcomment.getText().clear();
-                        Toast.makeText(MainActivity.this, "Failed to add comment", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Nepavyko sukurti darbo!", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(MainActivity.this, "Comment cannot be empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Negalima pridėti tuščio darbo!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -6,9 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.List;
 
@@ -30,10 +28,6 @@ public class AdminActivity extends AppCompatActivity {
         List<User> userList = mDbHelper.readAllUsers();
         UserListAdapter adapter = new UserListAdapter(AdminActivity.this, userList);
         mListView.setAdapter(adapter);
-      
-
-
-
 
 
         exit.setOnClickListener(new View.OnClickListener() {
